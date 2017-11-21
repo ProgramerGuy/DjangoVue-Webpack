@@ -1,24 +1,57 @@
 <template>
   <div id="app">
-    <section>
-      <b-dropdown>
-                 <button class="button is-primary" slot="trigger">
-                     <span>Click me!</span>
-                     <b-icon icon="menu-down"></b-icon>
-                 </button>
-
-                 <b-dropdown-item>Action</b-dropdown-item>
-                 <b-dropdown-item>Another action</b-dropdown-item>
-                 <b-dropdown-item>Something else</b-dropdown-item>
-             </b-dropdown>
-    </section>
+    <search-container>
+      <div slot="form">
+        <form>
+        <div class="columns">
+          <div class="column">
+            <b-field label="Nombre">
+              <b-input v-model="name"></b-input>
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field label="Appellido">
+              <b-input v-model="name"></b-input>
+            </b-field>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <b-field label="Nombre">
+              <b-input v-model="name"></b-input>
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field label="Nombre">
+              <b-input v-model="name"></b-input>
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field label="Appellido">
+              <b-input v-model="name"></b-input>
+            </b-field>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column ">
+            <input class="button is-primary" type="submit" @click.prevent="search" />             
+          </div>
+        </div>
+        </form>
+      </div>
+    </search-container>
     <!-- <img src="./assets/logo.png"> -->
   </div>
 </template>
 
 <script>
+import searchContainer from "./components/searchContainer.vue"
+
 export default {
   name: 'app',
+  components: {
+    searchContainer,
+  },
   data () {
     return {
       currentDate: new Date(),
@@ -73,15 +106,12 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    margin-top: 10px;
   }
 
   .header{
     background-color: red;
     padding: 0;
-  }
-
-  body{
-    margin: 0
   }
 
   .el-row {
