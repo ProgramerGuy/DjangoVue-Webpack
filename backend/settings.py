@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
+    'mainApp.apps.MainappConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -82,7 +84,7 @@ DATABASES = {
     # }
     'default': {
             'ENGINE': 'sql_server.pyodbc',
-            'NAME': '',
+            'NAME': 'dbTesting',
             'USER': '',
             'PASSWORD': '',
             'HOST': '',
