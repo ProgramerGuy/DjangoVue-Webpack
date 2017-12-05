@@ -1,51 +1,13 @@
 <template>
   <div id="app">
-    <search-container>
-      <div slot="form">
-        <form>
-        <div class="columns">
-          <div class="column">
-            <b-field label="Nombre">
-              <b-input v-model="name"></b-input>
-            </b-field>
-          </div>
-          <div class="column">
-            <b-field label="Appellido">
-              <b-input v-model="name"></b-input>
-            </b-field>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column">
-            <b-field label="Nombre">
-              <b-input v-model="name"></b-input>
-            </b-field>
-          </div>
-          <div class="column">
-            <b-field label="Nombre">
-              <b-input v-model="name"></b-input>
-            </b-field>
-          </div>
-          <div class="column">
-            <b-field label="Appellido">
-              <b-input v-model="name"></b-input>
-            </b-field>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column ">
-            <input class="button is-primary" type="submit" @click.prevent="search" />             
-          </div>
-        </div>
-        </form>
-      </div>
-    </search-container>
+    <catalog-container>
+    </catalog-container>
     <!-- <img src="./assets/logo.png"> -->
   </div>
 </template>
 
 <script>
-import searchContainer from "./components/searchContainer.vue"
+import catalogContainer from "./components/catalogContainer.vue"
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -76,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 export default {
   name: 'app',
   components: {
-    searchContainer,
+    catalogContainer,
   },
   data () {
     return {

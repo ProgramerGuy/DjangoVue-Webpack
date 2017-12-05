@@ -3,25 +3,35 @@
 
 {% block content %}
 {% load widget_tweaks %}
-	<div id="app">
+	<div id="app" class="container is-fullhd">
+		<form id="target" method="post"  @submit.prevent="submit" >
+		  {% csrf_token %}
+
+		  {{ form.set4x25 }}
+
+		  {% for hidden_field in form.hidden_fields %}
+		    {{ hidden_field }}
+		  {% endfor %}
+
+		  {% for field in form.visible_fields %}
+		    <div class="field is-horizontal">
+		      <label for="{{ field.auto_id }}" class="label"> {{ field.label_tag}}</label>
+		      <div class="control">
+		      	<!-- {{ field|attr:"v-model:'data.'"}} -->
+		      	{% render_field field class="input" %}
+		      </div>
+		    </div>
+		  {% endfor %}
+
+		  <button id="oficinaSubmit" type="submit" class="button is-primary">Guardar</button>
+		</form>
+
+		<catalog-container :info="list">
+		</catalog-container>
 	</div>
-	<form method="post" novalidate>
-	  {% csrf_token %}
 
-	  {% for hidden_field in form.hidden_fields %}
-	    {{ hidden_field }}
-	  {% endfor %}
+	<script>
 
-	  {% for field in form.visible_fields %}
-	    <div class="field is-horizontal">
-	      <label for="{{ field.auto_id }}" class="label"> {{ field.label_tag}}</label>
-	      <div class="control">
-	      	{% render_field field class="input" %}
-	      </div>
-	    </div>
-	  {% endfor %}
-
-	  <button type="submit" class="button is-primary">Guardar</button>
-	</form>
+	</script>
 	{% render_bundle 'main' %}
 {% endblock %}
